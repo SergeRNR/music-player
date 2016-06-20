@@ -1,0 +1,12 @@
+{
+  "paths": {
+    "client": "src/client",
+    "dist": "dist",
+    "music": "/home/serge/Music",
+    "media": "media"
+  },
+  "server": {
+    "port": 3000
+  },
+  "client": {}
+}
