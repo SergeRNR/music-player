@@ -5,7 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, 'dist');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
-  entry: path.join(APP_DIR, 'app.jsx'),
+  entry: path.join(APP_DIR, 'app.js'),
   output: {
     path: BUILD_DIR,
     filename: 'all.js'
@@ -13,11 +13,15 @@ var config = {
   module : {
     loaders : [
       {
-        test : /\.jsx?/,
+        test : /\.js?/,
         include : APP_DIR,
         loader : 'babel'
       }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.sass'],
+    root: [path.join(__dirname, './src')]
   }
 };
 

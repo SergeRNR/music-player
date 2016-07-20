@@ -2,8 +2,12 @@
 
 let gulp = require('gulp');
 let gutil = require('gulp-util');
+
+let sass = require('gulp-sass');
+let autoprefixer = require('gulp-autoprefixer');
+
 let webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
+let WebpackDevServer = require('webpack-dev-server');
 
 let webpackConfig = require('./webpack.config');
 let webpackStatsOptions = {
@@ -52,4 +56,17 @@ gulp.task('copy', (callback) => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['webpack', 'copy']);
+gulp.task('styles', function () {
+  gulp.src('src/styles/*.scss')
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watch', () => {
+  gulp.watch('src/styles/**/*.scss', ['styles']);
+});
+
+gulp.task('dev', ['build', 'watch', 'server']);
+
+gulp.task('build', ['webpack', 'copy', 'styles']);

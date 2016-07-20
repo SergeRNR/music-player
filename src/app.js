@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import ProgressBar from './components/ProgressBar.jsx';
+import ProgressBar from 'components/progress-bar';
 
 class App extends React.Component {
   render () {
