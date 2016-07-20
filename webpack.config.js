@@ -20,8 +20,8 @@ var config = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.sass'],
-    root: [path.join(__dirname, './src')]
+    extensions: ['', '.js'],
+    root: [path.join(__dirname, 'src')]
   }
 };
 
