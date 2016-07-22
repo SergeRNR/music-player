@@ -1,1 +1,45 @@
+@import 'config/colors';
+@import 'config/sizes';
 
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.progress-bar {
+  background-color: $progress-bar-color;
+  height: $progress-bar-height;
+
+  &-fill {
+    background-color: $progress-bar-fill-color;
+    height: 100%;
+    width: 33%;
+  }
+}
+
+.controls-bar {
+  height: $controls-bar-height;
+  line-height: $controls-bar-height;
+  text-align: center;
+
+  .controls-btn {
+    margin: 0 5px;
+    padding: 0;
+    vertical-align: middle;
+
+    &-play {
+      width: 0px;
+      height: 0px;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 30px solid $controls-btn-color;
+    }
+
+    &-stop {
+      width: 40px;
+      height: 40px;
+      background-color: $controls-btn-color;
+    }
+  }
+}

@@ -1,12 +1,10 @@
 import React from 'react';
 import PlaybackStore from 'stores/playback-store';
+import playbackActions from 'actions/playback-actions';
 
 class ProgressBar extends React.Component {
   constructor (props) {
     super (props);
-    this.state = {
-      progress: 0
-    };
     this.onChange = this.onChange.bind(this);
   }
 
@@ -14,21 +12,20 @@ class ProgressBar extends React.Component {
     PlaybackStore.addListener(this.onChange);
   }
 
-  // componentWillUnmount () {
-  //   PlaybackStore.removeChangeListener(this.onChange);
-  // }
+  componentWillUnmount () {
+    PlaybackStore.remove(this.onChange);
+  }
 
   onChange () {
     var playbackState = PlaybackStore.getState();
-    this.setState({
-      progress: 33
-    });
+    //
   }
 
   render () {
     return (
-      <div className="progress-bar">
-        <div className="progress-bar-fill" style={{width: this.state.progress + '%'}}></div>
+      <div className="controls-bar">
+        <button className="btn controls-btn controls-btn-play" onClick={playbackActions.play}></button>
+        <button className="btn controls-btn controls-btn-stop" onClick={playbackActions.stop}></button>
       </div>
     );
   }

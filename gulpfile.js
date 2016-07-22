@@ -52,7 +52,7 @@ gulp.task('server', (callback) => {
 });
 
 gulp.task('copy', (callback) => {
-  return gulp.src(['src/index.html'])
+  return gulp.src(['src/index.html', 'src/styles/icons/**/*.*'])
     .pipe(gulp.dest('dist'));
 });
 

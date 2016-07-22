@@ -1,12 +1,19 @@
-import { EventEmitter } from 'events';
+import {Store} from 'flux/utils';
+import dispatcher from 'dispatcher';
 import api from 'utils/api';
 
-let MediaStore = Object.assign({}, EventEmitter.prototype, {
+class MediaStore extends Store {
+  constructor () {
+    super(dispatcher);
+  }
+
+  __onDispatch (action) {
+    //
+  }
 
   getMedia () {
     return api.ajax('/media/test.mp3', 'arraybuffer');
   }
+}
 
-});
-
-export default MediaStore;
+export default new MediaStore();
